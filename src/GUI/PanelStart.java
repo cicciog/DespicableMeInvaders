@@ -201,7 +201,7 @@ public class PanelStart extends JPanel {
      *
      * @param r Rettangolo bottone
      */
-    void smallAnimationBtn(Rectangle r) {
+    public void smallAnimationBtn(Rectangle r) {
         r.width = dimBtn.width;
         r.height = dimBtn.height;
     }
@@ -212,7 +212,7 @@ public class PanelStart extends JPanel {
      *
      * @param r Rettangolo bottone
      */
-    void bigAnimationBtn(Rectangle r) {
+    public void bigAnimationBtn(Rectangle r) {
         r.width = dimBtn.width + dimFrame.height / 64;
         r.height = dimBtn.height + dimFrame.height / 36;
     }
@@ -223,7 +223,7 @@ public class PanelStart extends JPanel {
      *
      * @param r Rettangolo Titolo
      */
-    void smallAnimationTitle(Rectangle r) {
+    public void smallAnimationTitle(Rectangle r) {
         r.width = dimTitle.width - dimFrame.height / 64;
         r.height = dimTitle.height - dimFrame.height / 36;
     }
@@ -234,7 +234,7 @@ public class PanelStart extends JPanel {
      *
      * @param r Rettangolo Titolo
      */
-    void bigAnimationTitle(Rectangle r) {
+    public void bigAnimationTitle(Rectangle r) {
         r.width = dimTitle.width;
         r.height = dimTitle.height;
     }

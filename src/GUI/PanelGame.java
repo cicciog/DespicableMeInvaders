@@ -1,28 +1,21 @@
 package GUI;
 
-import GUI.MyFrame;
 import despicablemeinvader.MinionThread;
 import despicablemeinvader.Resources;
 import despicablemeinvader.Sound;
-import java.applet.AudioClip;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.MediaTracker;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
-import java.awt.event.ComponentListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.image.BufferedImage;
-import javafx.scene.layout.BackgroundImage;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -53,7 +46,7 @@ public class PanelGame extends JPanel {
     public Sound push;
 
     private Rectangle BackgroundRect;
-    Rectangle[] minion = new Rectangle[3];
+    public Rectangle[] minion = new Rectangle[3];
     private Rectangle scopeRect;
 
     //Variabili utilizzate per il movimento
@@ -67,9 +60,9 @@ public class PanelGame extends JPanel {
     private int speed;
 
     //Thread di animazione
-    MinionThread thread1;
-    MinionThread thread2;
-    MinionThread thread3;
+    public MinionThread thread1;
+    public MinionThread thread2;
+    public MinionThread thread3;
     //Utilizzo la classe MyFrame per gestire tutti i pannelli
     public MyFrame mf;
 
@@ -194,7 +187,7 @@ public class PanelGame extends JPanel {
      * @param r rettangolo del Minion
      * @param direction Direzione del movimento
      */
-    void moveMinion(Rectangle r, int direction) {
+    public void moveMinion(Rectangle r, int direction) {
 
         //Sposto il minion di uno step
         r.y += direction * this.speed;

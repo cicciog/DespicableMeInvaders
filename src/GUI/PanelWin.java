@@ -208,7 +208,7 @@ public class PanelWin extends JPanel {
      *
      * @param r Rettangolo YouWin
      */
-    void notVisibleAnimation(Rectangle r) {
+    public void notVisibleAnimation(Rectangle r) {
         r.width = 0;
         r.height = 0;
     }
@@ -219,7 +219,7 @@ public class PanelWin extends JPanel {
      *
      * @param r Rettangolo YouWin
      */
-    void VisibleAnimation(Rectangle r) {
+    public void VisibleAnimation(Rectangle r) {
         r.width = dimYouWin.width;
         r.height = dimYouWin.height;
     }
@@ -230,7 +230,7 @@ public class PanelWin extends JPanel {
      *
      * @param r Rettangolo Fuochi D'Artificio
      */
-    void smallVisibleAnimationPyro(Rectangle r) {
+    public void smallVisibleAnimationPyro(Rectangle r) {
         r.width = dimFrame.width - dimFrame.width / 16 * 2;
         r.height = dimFrame.height - dimFrame.height / 9 * 2;
     }
@@ -241,7 +241,7 @@ public class PanelWin extends JPanel {
      *
      * @param r Rettangolo Fuochi D'Artificio
      */
-    void bigVisibleAnimationPyro(Rectangle r) {
+    public void bigVisibleAnimationPyro(Rectangle r) {
         r.width = dimFrame.width;
         r.height = dimFrame.height;
     }
@@ -252,7 +252,7 @@ public class PanelWin extends JPanel {
      *
      * @param r Rettangolo Bottone
      */
-    void smallAnimationBtn(Rectangle r) {
+    public void smallAnimationBtn(Rectangle r) {
         r.width = dimBtn.width;
         r.height = dimBtn.height;
     }
@@ -263,7 +263,7 @@ public class PanelWin extends JPanel {
      *
      * @param r Rettangolo Bottone
      */
-    void bigAnimationBtn(Rectangle r) {
+    public void bigAnimationBtn(Rectangle r) {
         r.width = dimBtn.width + dimFrame.height / 64;
         r.height = dimBtn.height + dimFrame.height / 36;
     }

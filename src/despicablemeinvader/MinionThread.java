@@ -7,9 +7,9 @@ import java.awt.Rectangle;
  *  Thread animazione Minion
  * @author Cicciog
  */
-class MinionThread implements Runnable {
+public class MinionThread implements Runnable {
 
-    private static final int sleep = 10;
+    private int sleep = 10;
     private Thread thread;
     //Pannello a cui è legato il thread
     private PanelGame panelgame;
@@ -69,11 +69,11 @@ class MinionThread implements Runnable {
      * Avvia il thread
      */
     public void start() {
-        
         if( thread == null){
             thread = new Thread(this);
             thread.start ();
         }
+        
     }
 
     /**
