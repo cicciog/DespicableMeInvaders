@@ -4,11 +4,11 @@ import java.awt.Rectangle;
 
 /**
  *  Thread animazione pannello Gameover
- * @author Francesco  Gualtieri 149820
+ * @author Cicciog
  */
 public class GameOverThread implements Runnable {
 
-    private int sleep = 5;
+    private static final int sleep = 500;
     private Thread thread;
     //Pannello a cui è legato il thread
     private PanelGameOver panelgameover;
@@ -47,12 +47,12 @@ public class GameOverThread implements Runnable {
                 panelgameover.smallAnimationBtn(replay);
                 panelgameover.smallAnimationBtn(exit);
                 panelgameover.repaint();
-                Thread.sleep(500);
+                Thread.sleep(sleep);
                 panelgameover.VisibleAnimationGameover(rectangle);
                 panelgameover.bigAnimationBtn(replay);
                 panelgameover.bigAnimationBtn(exit);
                 panelgameover.repaint();
-                Thread.sleep(500);
+                Thread.sleep(sleep);
                 
             } catch (InterruptedException ex) {
                 System.out.println(ex.getCause());

@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 
 /**
  *  Thread animazione Minion
- * @author Francesco  Gualtieri 149820
+ * @author Cicciog
  */
 class MinionThread implements Runnable {
 
