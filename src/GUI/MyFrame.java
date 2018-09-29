@@ -31,22 +31,16 @@ public class MyFrame extends JFrame {
         this.setUndecorated(true);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setResizable(false);
-        
         this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
-        
         this.setVisible(true);
         this.soundtrack = Resources.getSound("/Sounds/music.wav");
         c = getContentPane();
         this.soundtrack.play(100);
+        
         this.initPanel(this.start, true);
-       
-    
         this.initPanel(this.game, false);
         this.initPanel(this.win, false);
         this.initPanel(this.gameover, false);
-        
-       
-    
     }
    
     public void initPanel(JPanel panel, boolean b){

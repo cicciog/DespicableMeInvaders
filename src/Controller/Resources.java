@@ -64,8 +64,6 @@ public class Resources {
     public static Sound getSound(String path) {
         Sound sound = null;
         try {
-            //System.out.println("\n\n\n\n" + getResource(path).toURI() + "\n\n\n\n");
-            //File file = new File(getResource(path).toURI());
             sound = new Sound(getResource(path));
         } catch (Exception ex) {
             ex.printStackTrace(System.err);

@@ -22,13 +22,10 @@ import javax.swing.JPanel;
  * @author Cicciog
  */
 public class PanelGameOver extends JPanel {
-//Dichiarzione delle variabili
 
-    //Creo il cursore del mouse per questo pannello
     private static final Cursor HIDDEN_CURSOR = Toolkit.getDefaultToolkit().createCustomCursor(
             new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new Point(), "null");
 
-    //Immagini e rettangoli per contenerle
     private Image Background;
     private Image Replay;
     private Image GameOverTxt;
@@ -41,17 +38,13 @@ public class PanelGameOver extends JPanel {
     private Rectangle exitRect;
     private Rectangle scopeRect;
 
-    //Suoni
     public Sound fail;
     public Sound fart;
 
-    //Thread utilizzato per l'animazione del pannello
     private GameOverThread thread;
     
-    //Utilizzo la classe MyFrame per gestire tutti i pannelli
     public MyFrame mf;
     
-    //Creo variabili dimension utilizzando la logica del dividere lo schermo in 16:9
     public static final Dimension dimFrame = new Dimension(Toolkit.getDefaultToolkit().getScreenSize());
     public static final Dimension dimBtn = new Dimension(dimFrame.height / 6, dimFrame.height / 6);
     public static final Dimension dimGameOver = new Dimension(dimFrame.width / 16 * 5, dimFrame.height / 3);
@@ -67,10 +60,7 @@ public class PanelGameOver extends JPanel {
     public PanelGameOver(MyFrame aThis) {
         this.mf = aThis;
 
-        //Nascondo il cursore
         this.setCursor(HIDDEN_CURSOR);
-        
-        //Imposto la dimensione dei rettangoli che contengono le immagini
         this.BackgoundRect = new Rectangle(dimFrame);
         this.GameOverTxtRect = new Rectangle((dimFrame.width - dimGameOver.width) / 2, (dimFrame.height - dimGameOver.height) / 2, dimGameOver.width, dimGameOver.height);
         this.replayRect = new Rectangle(dimFrame.width - dimBtn.width - dimFrame.width / 16 * 2, dimFrame.height - dimBtn.height - dimFrame.height / 9, dimBtn.width, dimBtn.height);
@@ -79,18 +69,14 @@ public class PanelGameOver extends JPanel {
         this.scopeRect.setSize(dimScope);
         this.scopeRect.setLocation(-100, -100);
 
-        //Carico le immagini del pannello
         Background = Resources.getImage("/Images/gameover_background.jpg");
         GameOverTxt = Resources.getImage("/Images/Game_Over.gif");
         Replay = Resources.getImage("/Images/replay.png");
         exit = Resources.getImage("/Images/exitbtn.png");
         scope = Resources.getImage("/Images/hand.png");
         
-        //Suoni
         fail = Resources.getSound("/Sounds/fail.wav");
         fart = Resources.getSound("/Sounds/fart.wav");
-
-        //Inizializzo il thread
         thread = new GameOverThread(this, this.GameOverTxtRect, this.replayRect, this.exitRect);
         thread.start();
 
@@ -103,7 +89,6 @@ public class PanelGameOver extends JPanel {
             @Override
             public void mouseMoved(MouseEvent e) {
 
-                //Imposto il mirino sul cursore e chiamo il metodo repaint()
                 scopeRect.x = e.getPoint().x - scopeRect.width / 2;
                 scopeRect.y = e.getPoint().y - scopeRect.height / 2;
                 repaint();
@@ -119,19 +104,16 @@ public class PanelGameOver extends JPanel {
              */
             @Override
             public void mouseReleased(MouseEvent e) {
-                
-                //Ottengo la posizione del mouse
+               
                 Point[] hitPoint = new Point[2];
                 hitPoint[0] = e.getPoint();
                 hitPoint[1] = e.getPoint();
 
-                //Ottengo le coordinate del click rispetto al minion
                 hitPoint[0].x -= replayRect.x;
                 hitPoint[0].y -= replayRect.y;
                 hitPoint[1].x -= exitRect.x;
                 hitPoint[1].y -= exitRect.y;
 
-                //Se il click è interno ai pulsanti
                 this.containsReplay(replayRect, hitPoint[0].x, hitPoint[0].y);
                 this.containsExit(exitRect, hitPoint[1].x, hitPoint[1].y);
 
@@ -152,16 +134,12 @@ public class PanelGameOver extends JPanel {
                 if (x < 0 || y < 0 || x >= r.width || y >= r.height) {
 
                 } else {
-                    //Imposto i minion nella posizione iniziale
                     mf.game.minion[0].y = mf.game.randomMinMax(mf.game.minionYmin, mf.game.minionYmax);
                     mf.game.minion[1].y = mf.game.randomMinMax(mf.game.minionYmin, mf.game.minionYmax);
                     mf.game.minion[2].y = mf.game.randomMinMax(mf.game.minionYmin, mf.game.minionYmax);
                     mf.game.score = 0;
-
-                    //Suono
                     fart.play();
 
-                    //Rendo visibile il pannello start e invisibile il pannello gameover
                     mf.initPanel(mf.start, true);
                     mf.initPanel(mf.gameover, false);
 
@@ -256,7 +234,6 @@ public class PanelGameOver extends JPanel {
     public void setVisible(boolean b) {
         super.setVisible(b);
         if (b) {
-            //Suono
             fail.play();
         }
     }

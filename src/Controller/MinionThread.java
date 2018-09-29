@@ -40,21 +40,17 @@ public class MinionThread implements Runnable {
             while (true) {
                 panelgame.moveMinion(rectangle, direction);
                 if (panelgame.score == 50) {
-                    //Se arrivo al punteggio 50 rendo visibile il pannello "win" e invisibile quello "game"
                     panelgame.mf.initPanel(panelgame.mf.win, true);
                     panelgame.mf.initPanel(panelgame.mf.game, false);
 
                 }
-                //Se il Minion tocca il suolo attivo il pannello gameover
+                
                 if (panelgame.minion[0].y >= panelgame.dimFrame.height - panelgame.minion[0].height / 3 * 2 || panelgame.minion[1].y >= panelgame.dimFrame.height - panelgame.minion[1].height / 3 * 2 || panelgame.minion[2].y >= panelgame.dimFrame.height - panelgame.minion[2].height / 3 * 2) {
-
                     panelgame.thread1.stop();
                     panelgame.thread2.stop();
                     panelgame.thread3.stop();
-
                     panelgame.mf.initPanel(panelgame.mf.gameover, true);
                     panelgame.mf.initPanel(panelgame.mf.game, false);
-
                 }
                 panelgame.repaint();
                 Thread.sleep(sleep);
