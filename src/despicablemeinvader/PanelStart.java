@@ -4,7 +4,6 @@ import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.MediaTracker;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
@@ -12,12 +11,11 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.image.BufferedImage;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
  *  Pannello start
- * @author Francesco  Gualtieri 149820
+ * @author Cicciog
  */
 public class PanelStart extends JPanel {
    //Dichiarzione delle variabili
