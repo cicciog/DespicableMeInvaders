@@ -211,7 +211,7 @@ public class PanelGameOver extends JPanel {
      *
      * @param r Rettangolo scritta Gameover
      */
-    void notVisibleAnimationGameover(Rectangle r) {
+    public void notVisibleAnimationGameover(Rectangle r) {
         r.width = 0;
         r.height = 0;
     }
@@ -222,7 +222,7 @@ public class PanelGameOver extends JPanel {
      *
      * @param r Rettangolo scritta Gameover
      */
-    void VisibleAnimationGameover(Rectangle r) {
+    public void VisibleAnimationGameover(Rectangle r) {
         r.width = dimGameOver.width;
         r.height = dimGameOver.height;
     }
@@ -233,7 +233,7 @@ public class PanelGameOver extends JPanel {
      *
      * @param r Rettangolo Bottone
      */
-    void smallAnimationBtn(Rectangle r) {
+    public void smallAnimationBtn(Rectangle r) {
         r.width = dimBtn.width;
         r.height = dimBtn.height;
     }
@@ -244,7 +244,7 @@ public class PanelGameOver extends JPanel {
      *
      * @param r Rettangolo Bottone
      */
-    void bigAnimationBtn(Rectangle r) {
+    public void bigAnimationBtn(Rectangle r) {
         r.width = dimBtn.width + dimFrame.height / 64;
         r.height = dimBtn.height + dimFrame.height / 36;
     }
