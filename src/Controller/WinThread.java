@@ -12,9 +12,7 @@ public class WinThread implements Runnable {
 
     private int sleep = 500;
     private Thread thread;
-    //Pannello a cui è legato il thread
     private PanelWin panelwin;
-    //Rettangoli per il movimento
     private Rectangle rectangle;
     private Rectangle replay;
     private Rectangle exit;

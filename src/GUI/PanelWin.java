@@ -25,13 +25,10 @@ import javax.swing.JPanel;
  * @author Francesco  Gualtieri 149820
  */
 public class PanelWin extends JPanel {
-//Dichiarzione delle variabili
-
-    //Creo il cursore del mouse per questo pannello
+    
     private static Cursor HIDDEN_CURSOR = Toolkit.getDefaultToolkit().createCustomCursor(
             new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new Point(), "null");
 
-    //Immagini e rettangoli per contenerle
     private Image Background;
     private Image Happy;
     private Image youWin;
@@ -46,15 +43,11 @@ public class PanelWin extends JPanel {
     private Rectangle exitRect;
     private Rectangle scopeRect;
 
-    //Suoni
     public Sound win;
     public Sound fart;
 
-    //Thread utilizzato per l'animazione del pannello
     private WinThread thread;
-    //Utilizzo la classe MyFrame per gestire tutti i pannelli
     public MyFrame mf;
-    //Creo variabili dimension utilizzando la logica del dividere lo schermo in 16:9
     public static Dimension dimFrame = new Dimension(Toolkit.getDefaultToolkit().getScreenSize());
     public Dimension dimBtn = new Dimension(dimFrame.height / 6, dimFrame.height / 6);
     public Dimension dimYouWin = new Dimension(dimFrame.width / 16 * 5, dimFrame.height / 3);
@@ -70,9 +63,7 @@ public class PanelWin extends JPanel {
     public PanelWin(MyFrame aThis) {
         this.mf = aThis;
 
-        //Nascondo il cursore
         this.setCursor(HIDDEN_CURSOR);
-        //Imposto la dimensione dei rettangoli che contengono le immagini
         this.BackgoundRect = new Rectangle(dimFrame);
         this.HappyRect = new Rectangle(dimFrame);
         this.youWinRect = new Rectangle((dimFrame.width - dimYouWin.width) / 2, (dimFrame.height - dimYouWin.height) / 2, dimYouWin.width, dimYouWin.height);
@@ -81,8 +72,7 @@ public class PanelWin extends JPanel {
         this.scopeRect = new Rectangle();
         this.scopeRect.setSize(dimScope);
         this.scopeRect.setLocation(-100, -100);
-
-        //carico le immagini del pannello
+        
         Background = Resources.getImage("/Images/panelwin.jpg");
         youWin = Resources.getImage("/Images/you_win.png");
         Happy = Resources.getImage("/Images/fuochi.gif");
@@ -90,10 +80,9 @@ public class PanelWin extends JPanel {
         exit = Resources.getImage("/Images/exitbtn.png");
         scope = Resources.getImage("/Images/hand.png");
 
-        //Suoni
         win = Resources.getSound("/Sounds/win.wav");
         fart = Resources.getSound("/Sounds/fart.wav");
-        //Inizializzo il thread
+        
         this.thread = new WinThread(this, this.youWinRect, replayRect, exitRect, HappyRect);
         thread.start();
 
@@ -105,8 +94,6 @@ public class PanelWin extends JPanel {
              */
             @Override
             public void mouseMoved(MouseEvent e) {
-
-                //Imposto il mirino sul cursore e chiamo il metodo repaint()
                 scopeRect.x = e.getPoint().x - scopeRect.width / 2;
                 scopeRect.y = e.getPoint().y - scopeRect.height / 2;
                 repaint();
@@ -122,18 +109,15 @@ public class PanelWin extends JPanel {
              */
             @Override
             public void mouseReleased(MouseEvent e) {
-                //Ottengo la posizione del mouse
                 Point[] hitPoint = new Point[2];
                 hitPoint[0] = e.getPoint();
                 hitPoint[1] = e.getPoint();
 
-                //Ottengo le coordinate del click rispetto al minion
                 hitPoint[0].x -= replayRect.x;
                 hitPoint[0].y -= replayRect.y;
                 hitPoint[1].x -= exitRect.x;
                 hitPoint[1].y -= exitRect.y;
 
-                //Se il click è interno ai pulsanti
                 this.containsReplay(replayRect, hitPoint[0].x, hitPoint[0].y);
                 this.containsExit(exitRect, hitPoint[1].x, hitPoint[1].y);
 
@@ -179,7 +163,6 @@ public class PanelWin extends JPanel {
                 if (x < 0 || y < 0 || x >= r.width || y >= r.height) {
 
                 } else {
-                    //chiudo il gioco
                     System.exit(0);
                 }
             }
@@ -275,7 +258,6 @@ public class PanelWin extends JPanel {
     public void setVisible(boolean b) {
         super.setVisible(b);
         if (b) {
-            //Suono
             win.play();
         }
     }

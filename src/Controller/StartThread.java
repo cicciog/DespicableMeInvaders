@@ -11,9 +11,7 @@ public class StartThread implements Runnable {
 
     private int sleep = 500;
     private Thread thread;
-    //Pannello a cui è legato il thread
     private PanelStart panelStart;
-    //Rettangoli per il movimento
     private Rectangle title;
     private Rectangle play;
     private Rectangle exit;

@@ -22,13 +22,9 @@ import javax.swing.JPanel;
  * @author Cicciog
  */
 public class PanelStart extends JPanel {
-   //Dichiarzione delle variabili
-
-    //Creo il cursore del mouse per questo pannello
     private static Cursor HIDDEN_CURSOR = Toolkit.getDefaultToolkit().createCustomCursor(
             new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new Point(), "null");
-
-    //Immagini e rettangoli per contenerle
+    
     private Image Background;
     private Image play;
     private Image exit;
@@ -41,18 +37,13 @@ public class PanelStart extends JPanel {
     private Rectangle scopeRect;
     private Rectangle titleRect;
 
-    //Suono
     public Sound playSound;
-
-    //Creo variabili dimension utilizzando la logica del dividere lo schermo in 16:9
     public static Dimension dimFrame = new Dimension(Toolkit.getDefaultToolkit().getScreenSize());
     public Dimension dimBtn = new Dimension(dimFrame.height / 6, dimFrame.height / 6);
     public static Dimension dimScope = new Dimension(dimFrame.height / 18, dimFrame.height / 18);
     public static Dimension dimTitle = new Dimension(dimFrame.width / 32 * 9, dimFrame.height / 3);
 
-    //Thread utilizzato per l'animazione del pannello
     private StartThread thread;
-    //Utilizzo la classe MyFrame per gestire tutti i pannelli 
     private MyFrame mf;
 
     /**
@@ -64,32 +55,25 @@ public class PanelStart extends JPanel {
      */
     public PanelStart(MyFrame aThis) {
         this.mf = aThis;
-
-        //Nascondo il cursore
         this.setCursor(HIDDEN_CURSOR);
 
-        //Imposto la dimensione dei rettangoli che contengono le immagini
         this.BackgoundRect = new Rectangle(dimFrame.width, dimFrame.height);
         this.playRect = new Rectangle(dimBtn);
         this.exitRect = new Rectangle(dimBtn);
         this.scopeRect = new Rectangle(-100, -100, dimScope.width, dimScope.height);
         this.titleRect = new Rectangle(dimFrame.width - dimTitle.width - dimFrame.width / 32, dimFrame.height / 18, dimTitle.width, dimTitle.height);
 
-        //Carico le immagini del pannello utilizzando la classe Resources
         Background = Resources.getImage("/Images/start_background.jpg");
         play = Resources.getImage("/Images/play.gif");
         exit = Resources.getImage("/Images/exitbtn.png");
         scope = Resources.getImage("/Images/hand.png");
         title = Resources.getImage("/Images/despicableme.gif");
-
-        //Suono
+        
         playSound = Resources.getSound("/Sounds/hahaha.wav");
 
-        //Imposto la posizione dei pulsanti play e exit
         this.playRect.setLocation((this.dimFrame.width - this.playRect.width - this.dimFrame.width / 16 * 2), (this.dimFrame.height - this.playRect.height - this.dimFrame.height / 9));
         this.exitRect.setLocation((0 + this.dimFrame.width / 16 * 2), (this.dimFrame.height - this.dimFrame.height / 9 - this.dimBtn.height));
 
-        //Inizializzo il thread
         thread = new StartThread(this, this.titleRect, this.playRect, this.exitRect);
         thread.start();
 
@@ -101,8 +85,6 @@ public class PanelStart extends JPanel {
              */
             @Override
             public void mouseMoved(MouseEvent e) {
-
-                //Imposto il mirino sul cursore e chiamo il metodo repaint()
                 scopeRect.x = e.getPoint().x - scopeRect.width / 2;
                 scopeRect.y = e.getPoint().y - scopeRect.height / 2;
                 repaint();
@@ -118,18 +100,15 @@ public class PanelStart extends JPanel {
              */
             @Override
             public void mouseReleased(MouseEvent e) {
-                //Ottengo la posizione del mouse
                 Point[] hitPoint = new Point[2];
                 hitPoint[0] = e.getPoint();
                 hitPoint[1] = e.getPoint();
 
-                //Ottengo le coordinate del click rispetto al minion
                 hitPoint[0].x -= playRect.x;
                 hitPoint[0].y -= playRect.y;
                 hitPoint[1].x -= exitRect.x;
                 hitPoint[1].y -= exitRect.y;
 
-                //Se il click è interno ai pulsanti
                 this.containsPlay(playRect, hitPoint[0].x, hitPoint[0].y);
                 this.containsExit(exitRect, hitPoint[1].x, hitPoint[1].y);
 
@@ -150,9 +129,7 @@ public class PanelStart extends JPanel {
                 if (x < 0 || y < 0 || x >= r.width || y >= r.height) {
 
                 } else {
-                    //Suono
                     playSound.play();
-                    //rendo invisibile il pannello start e attivo quello game
                     mf.initPanel(mf.game, true);
                     mf.initPanel(mf.start, false);
                 }
@@ -172,7 +149,6 @@ public class PanelStart extends JPanel {
                 if (x < 0 || y < 0 || x >= r.width || y >= r.height) {
 
                 } else {
-                    //chiudo il gioco
                     System.exit(0);
                 }
                 repaint();

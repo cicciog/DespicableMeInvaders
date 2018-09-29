@@ -11,9 +11,7 @@ public class MinionThread implements Runnable {
 
     private int sleep = 10;
     private Thread thread;
-    //Pannello a cui è legato il thread
     private PanelGame panelgame;
-    //Rettangoli contenitore del Minion
     private Rectangle rectangle;
     private int direction;
 
