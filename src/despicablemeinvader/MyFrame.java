@@ -2,15 +2,13 @@ package despicablemeinvader;
 
 import java.awt.Container;
 import java.awt.Toolkit;
-import java.awt.event.ActionListener;
-import javafx.stage.Screen;
 import javax.swing.JFrame;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JPanel;
 
 /**
  *  Frame contenitore di pannelli
- * @author Francesco Gualtieri 149820
+ * @author Cicciog
  */
 public class MyFrame extends JFrame {
     
