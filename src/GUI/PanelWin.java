@@ -1,9 +1,9 @@
 package GUI;
 
 import GUI.MyFrame;
-import despicablemeinvader.Resources;
-import despicablemeinvader.Sound;
-import despicablemeinvader.WinThread;
+import Controller.Resources;
+import Controller.Sound;
+import Controller.WinThread;
 import static GUI.PanelGameOver.dimFrame;
 import static GUI.PanelStart.dimFrame;
 import static GUI.PanelStart.dimScope;

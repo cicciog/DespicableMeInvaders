@@ -1,4 +1,4 @@
-package despicablemeinvader;
+package Controller;
 
 import java.awt.image.BufferedImage;
 import java.io.*;

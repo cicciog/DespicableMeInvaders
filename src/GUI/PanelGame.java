@@ -1,8 +1,8 @@
 package GUI;
 
-import despicablemeinvader.MinionThread;
-import despicablemeinvader.Resources;
-import despicablemeinvader.Sound;
+import Controller.MinionThread;
+import Controller.Resources;
+import Controller.Sound;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;

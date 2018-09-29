@@ -1,4 +1,4 @@
-package despicablemeinvader;
+package Controller;
 
 import java.net.MalformedURLException;
 import java.net.URL;

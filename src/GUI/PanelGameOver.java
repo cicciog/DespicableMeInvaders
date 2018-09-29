@@ -1,9 +1,9 @@
 package GUI;
 
 import GUI.MyFrame;
-import despicablemeinvader.GameOverThread;
-import despicablemeinvader.Resources;
-import despicablemeinvader.Sound;
+import Controller.GameOverThread;
+import Controller.Resources;
+import Controller.Sound;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Graphics;

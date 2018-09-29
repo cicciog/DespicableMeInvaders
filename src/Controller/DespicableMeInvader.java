@@ -1,4 +1,4 @@
-package despicablemeinvader;
+package Controller;
 
 import GUI.MyFrame;
 import java.awt.Dimension;

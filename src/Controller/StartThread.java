@@ -1,4 +1,4 @@
-package despicablemeinvader;
+package Controller;
 
 import GUI.PanelStart;
 import java.awt.Rectangle;
