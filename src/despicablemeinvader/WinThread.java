@@ -5,11 +5,11 @@ import java.awt.Rectangle;
 
 /**
  *  Thread animazione pannello vittoria
- * @author Francesco  Gualtieri 149820
+ * @author Cicciog
  */
 public class WinThread implements Runnable {
 
-    private int sleep = 5;
+    private int sleep = 500;
     private Thread thread;
     //Pannello a cui è legato il thread
     private PanelWin panelwin;
@@ -44,9 +44,6 @@ public class WinThread implements Runnable {
     public void run() {
 
         while (true) {
-
-            
-         
             try {
                 panelwin.notVisibleAnimation(rectangle);
                 panelwin.smallAnimationBtn(replay);
@@ -54,7 +51,7 @@ public class WinThread implements Runnable {
                 panelwin.smallVisibleAnimationPyro(pyro);
                 panelwin.repaint();
           
-                Thread.sleep(500);
+                Thread.sleep(sleep);
             
                 panelwin.VisibleAnimation(rectangle);
                 panelwin.bigAnimationBtn(replay);
@@ -62,21 +59,20 @@ public class WinThread implements Runnable {
                 panelwin.bigVisibleAnimationPyro(pyro);
                 panelwin.repaint();
            
-                Thread.sleep(500);
+                Thread.sleep(sleep);
             
                 panelwin.smallVisibleAnimationPyro(pyro);
                 panelwin.repaint();
             
-                Thread.sleep(500);
+                Thread.sleep(sleep);
             
                 panelwin.bigVisibleAnimationPyro(pyro);
                 panelwin.repaint();
             
-                Thread.sleep(500);
+                Thread.sleep(sleep);
             } catch (InterruptedException ex) {
+                System.out.println(ex.getCause());
             }
-            
-            
         }
 
     }
@@ -85,10 +81,11 @@ public class WinThread implements Runnable {
      * Avvia il thread
      */
     public void start() {
-        stop();
 
-        thread = new Thread(this);
-        thread.start();
+        if(thread == null){
+            thread = new Thread(this);
+            thread.start();
+        }
     }
 
     /**
