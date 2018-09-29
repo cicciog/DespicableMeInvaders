@@ -1,7 +1,6 @@
 package despicablemeinvader;
 
 import java.awt.Rectangle;
-import javax.swing.JOptionPane;
 
 /**
  *  Thread animazione Minion
@@ -9,7 +8,7 @@ import javax.swing.JOptionPane;
  */
 class MinionThread implements Runnable {
 
-    private int sleep = 10;
+    private static final int sleep = 10;
     private Thread thread;
     //Pannello a cui è legato il thread
     private PanelGame panelgame;
@@ -36,6 +35,7 @@ class MinionThread implements Runnable {
      */
     public void run() {
         try {
+            
             while (true) {
                 panelgame.moveMinion(rectangle, direction);
                 if (panelgame.score == 50) {
@@ -59,7 +59,7 @@ class MinionThread implements Runnable {
                 Thread.sleep(sleep);
             }
         } catch (InterruptedException ex) {
-           
+           System.out.println(ex.getCause());
         }
 
     }
@@ -68,11 +68,11 @@ class MinionThread implements Runnable {
      * Avvia il thread
      */
     public void start() {
-        stop();
-
-        thread = new Thread(this);
-
-        thread.start();
+        
+        if( thread == null){
+            thread = new Thread(this);
+            thread.start ();
+        }
     }
 
     /**
