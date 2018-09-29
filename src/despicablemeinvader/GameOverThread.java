@@ -1,5 +1,6 @@
 package despicablemeinvader;
 
+import GUI.PanelGameOver;
 import java.awt.Rectangle;
 
 /**

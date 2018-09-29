@@ -1,5 +1,6 @@
 package despicablemeinvader;
 
+import GUI.PanelWin;
 import java.awt.Rectangle;
 
 

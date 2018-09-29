@@ -1,5 +1,7 @@
-package despicablemeinvader;
+package GUI;
 
+import despicablemeinvader.Resources;
+import despicablemeinvader.Sound;
 import java.awt.Container;
 import java.awt.Toolkit;
 import javax.swing.JFrame;

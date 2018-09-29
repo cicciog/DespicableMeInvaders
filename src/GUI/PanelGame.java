@@ -1,5 +1,9 @@
-package despicablemeinvader;
+package GUI;
 
+import GUI.MyFrame;
+import despicablemeinvader.MinionThread;
+import despicablemeinvader.Resources;
+import despicablemeinvader.Sound;
 import java.applet.AudioClip;
 import java.awt.Color;
 import java.awt.Cursor;

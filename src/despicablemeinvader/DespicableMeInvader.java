@@ -1,5 +1,6 @@
 package despicablemeinvader;
 
+import GUI.MyFrame;
 import java.awt.Dimension;
 import javax.swing.UIManager;
 
