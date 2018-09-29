@@ -4,11 +4,11 @@ import java.awt.Rectangle;
 
 /**
  *  Thread animazione pannello start
- * @author Francesco Gualtieri 149820
+ * @author Cicciog
  */
 public class StartThread implements Runnable {
 
-    private int sleep = 5;
+    private int sleep = 500;
     private Thread thread;
     //Pannello a cui è legato il thread
     private PanelStart panelStart;
@@ -38,25 +38,21 @@ public class StartThread implements Runnable {
      */
     public void run() {
         while (true) {
-
-         
-
             try {
                 panelStart.smallAnimationBtn(play);
                 panelStart.smallAnimationBtn(exit);
                 panelStart.smallAnimationTitle(title);
                 panelStart.repaint();
-                Thread.sleep(500);
+                Thread.sleep(sleep);
 
                 panelStart.bigAnimationBtn(play);
                 panelStart.bigAnimationBtn(exit);
                 panelStart.bigAnimationTitle(title);
                 panelStart.repaint();
-                Thread.sleep(500);
+                Thread.sleep(sleep);
             } catch (InterruptedException ex) {
-                
+                System.out.println(ex.getCause());
             }
-
            
         }
     }
@@ -65,11 +61,11 @@ public class StartThread implements Runnable {
      * Avvia il thread
      */
     public void start() {
-        stop();
-
-        thread = new Thread(this);
-
-        thread.start();
+        
+        if( thread == null){
+            thread = new Thread(this);
+            thread.start();
+        }
     }
 
     /**
