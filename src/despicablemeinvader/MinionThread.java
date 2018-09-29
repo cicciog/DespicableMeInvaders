@@ -69,11 +69,8 @@ public class MinionThread implements Runnable {
      * Avvia il thread
      */
     public void start() {
-        if( thread == null){
-            thread = new Thread(this);
-            thread.start ();
-        }
-        
+        thread = new Thread(this);        
+        thread.start ();  
     }
 
     /**
